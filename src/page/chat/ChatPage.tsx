@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 
 import { Background } from "@/component/Background";
 
-const BasicTestPage = () => {
+const ChatPage = () => {
   return (
     <>
       <Background src="/img/basictest_background.png" alt="background" />
@@ -10,4 +10,4 @@ const BasicTestPage = () => {
   );
 };
 
-export default BasicTestPage;
+export default ChatPage;
