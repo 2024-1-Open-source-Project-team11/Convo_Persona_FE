@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 
 export const Background = styled.div`
   background-color: #ff8e99;
-  position: absolute;
+  position: fixed;
   top: 0px;
   left: 0px;
 
