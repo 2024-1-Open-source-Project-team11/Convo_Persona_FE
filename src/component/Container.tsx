@@ -19,31 +19,65 @@ export const ChatContainer = styled.div`
   background-color: white;
 
   display: flex;
-  justify-content: space-between;
+
   align-items: center;
-  flex-direction: column;
+  flex-direction: column-reverse;
 
   border-radius: 7px;
 
   width: 100%;
   height: 520px;
+
+  overflow-y: scroll;
+
+  ::-webkit-scrollbar {
+    display: none;
+  }
 `;
 
 export const ChatInputContainer = styled(ChatContainer)`
   background-color: unset;
+  border: unset;
+
+  justify-content: space-between;
   flex-direction: row;
 
   width: 100%;
   height: 40px;
 
   margin-top: 10px;
+
+  overflow-y: unset;
 `;
 
-export const MassageContainer = styled(ChatContainer)`
-  background-color: #ff7493;
+export const GptMessageContainer = styled(ChatContainer)`
+  color: white;
 
+  background-color: #ff7a85;
+
+  border: 2px solid #ff7a85;
+  border-radius: 3px;
+
+  align-items: unset;
   flex-direction: row;
 
   height: unset;
-  width: 93%;
+  width: 95%;
+  overflow-y: unset;
+
+  margin-bottom: 6px;
+`;
+
+export const UserMessageContainer = styled(GptMessageContainer)`
+  color: #ff7a85;
+
+  background-color: white;
+
+  border: 2px solid #ff7a85;
+`;
+
+export const MessageContantContainer = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
 `;
