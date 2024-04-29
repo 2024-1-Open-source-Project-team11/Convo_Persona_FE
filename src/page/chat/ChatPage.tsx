@@ -1,15 +1,17 @@
 import { useEffect } from "react";
 import styled from "@emotion/styled";
 
-import { Background } from "@/component/Background";
-
 import useChatState from "@/store/chatStore";
+
+import { Background } from "@/component/Background";
+import { Container, ChatContainer } from "@/component/Container";
 
 const ChatPage = () => {
   const { chat, setChat, addSendMessage, addResiveMessage } = useChatState(
     (state) => state
   );
 
+  //Test code
   useEffect(() => {
     setChat({
       id: "1",
@@ -29,6 +31,9 @@ const ChatPage = () => {
   return (
     <>
       <Background />
+      <Container>
+        <ChatContainer />
+      </Container>
     </>
   );
 };

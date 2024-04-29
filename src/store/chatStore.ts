@@ -20,7 +20,7 @@ const useChatState = create<Chat.ChatStore>((set) => ({
         content: content,
       });
 
-      return state; //빈 object 넣어도 되는지 확인
+      return {};
     });
   },
 
@@ -29,7 +29,7 @@ const useChatState = create<Chat.ChatStore>((set) => ({
       state.chat.message[state.chat.message.length - 1].id = res.sendMessage.id;
       state.chat.message.push(res.resiveMessage);
 
-      return state; //빈 object 넣어도 되는지 확인
+      return {};
     });
   },
 }));
