@@ -1,17 +1,30 @@
 declare namespace Chat {
-  //DTO
   export interface Message {
-    id: string;
+    id: string | undefined;
     sender: "USER" | "GPT";
     content: stirng;
   }
 
-  export interface LoadAllChatResDto {
-    id: string;
+  export interface Chat {
+    id: string | undefined;
     message: Message[];
   }
 
+  //DTO
   export interface AddChatReqDto {
     content: stirng;
+  }
+
+  export interface AddChatResDto {
+    sendMessage: Message;
+    resiveMessage: Message;
+  }
+
+  //Store
+  export interface ChatStore {
+    chat: Chat;
+    setChat: (chat: Chat) => void;
+    addSendMessage: (content: string) => void;
+    addResiveMessage: (res: AddChatResDto) => void;
   }
 }
