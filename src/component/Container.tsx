@@ -1,12 +1,10 @@
 import styled from "@emotion/styled";
 
 export const Container = styled.div`
-  background-color: blue;
-
   position: fixed;
   left: 50%;
   top: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -52%);
 
   display: flex;
   justify-content: center;
@@ -14,7 +12,7 @@ export const Container = styled.div`
   flex-direction: column;
 
   width: 340px;
-  height: 620px;
+  height: 630px;
 `;
 
 export const ChatContainer = styled.div`
@@ -28,7 +26,7 @@ export const ChatContainer = styled.div`
   border-radius: 7px;
 
   width: 100%;
-  height: 530px;
+  height: 520px;
 `;
 
 export const ChatInputContainer = styled(ChatContainer)`
@@ -39,4 +37,13 @@ export const ChatInputContainer = styled(ChatContainer)`
   height: 40px;
 
   margin-top: 10px;
+`;
+
+export const MassageContainer = styled(ChatContainer)`
+  background-color: #ff7493;
+
+  flex-direction: row;
+
+  height: unset;
+  width: 93%;
 `;

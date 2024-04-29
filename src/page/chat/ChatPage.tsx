@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import styled from "@emotion/styled";
+import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
 
 import useChatState from "@/store/chatStore";
 
@@ -9,6 +10,7 @@ import {
   ChatContainer,
   ChatInputContainer,
 } from "@/component/Container";
+import Logo from "@/component/Logo";
 
 const ChatPage = () => {
   const { chat, setChat, addSendMessage, addResiveMessage } = useChatState(
@@ -36,10 +38,13 @@ const ChatPage = () => {
     <>
       <Background />
       <Container>
+        <Logo />
         <ChatContainer />
         <ChatInputContainer>
-          <Input id="outlined-basic" label="Outlined" variant="outlined" />
-          <SubmitButton />
+          <Input placeholder="Message to ConvoPersona..." />
+          <SubmitButton>
+            <ArrowUpwardIcon />
+          </SubmitButton>
         </ChatInputContainer>
       </Container>
     </>
@@ -49,21 +54,38 @@ const ChatPage = () => {
 const Input = styled.input`
   background-color: white;
 
-  width: 270px;
+  width: 266px;
   height: 40px;
 
   border: 0px white solid;
+  border-left: 5px white solid;
   border-radius: 7px;
+
+  outline: none;
+
+  font-size: 15px;
 `;
 
 const SubmitButton = styled.button`
-  background-color: white;
+  background-color: #ff4646;
 
   width: 57px;
   height: 42px;
 
   border: 0px white solid;
   border-radius: 7px;
+
+  box-shadow: 0px 5px 0 -0.5px black;
+
+  margin-top: -3px;
+  margin-bottom: 5px;
+
+  color: white;
+
+  :hover {
+    box-shadow: 0 0 0 0 black;
+    margin-bottom: -5px;
+  }
 `;
 
 export default ChatPage;
