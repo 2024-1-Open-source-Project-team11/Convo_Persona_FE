@@ -9,7 +9,7 @@ const ChatService = () => {
   const loadAllChat = async () => {
     const {
       data: { message },
-    } = (await API.get(`${URL}`)) as AxiosResponse<Chat.LoadAllChatResDto>;
+    } = (await API.get(`${URL}`)) as AxiosResponse<Chat.Chat>;
 
     console.log(message);
   };
