@@ -1,6 +1,8 @@
 import styled from "@emotion/styled";
 
 export const Container = styled.div`
+  background-color: blue;
+
   position: fixed;
   left: 50%;
   top: 50%;
@@ -15,11 +17,26 @@ export const Container = styled.div`
   height: 620px;
 `;
 
-export const ChatContainer = styled(Container)`
+export const ChatContainer = styled.div`
   background-color: white;
 
-  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+
+  border-radius: 7px;
 
   width: 100%;
-  height: 580px;
+  height: 530px;
+`;
+
+export const ChatInputContainer = styled(ChatContainer)`
+  background-color: unset;
+  flex-direction: row;
+
+  width: 100%;
+  height: 40px;
+
+  margin-top: 10px;
 `;
