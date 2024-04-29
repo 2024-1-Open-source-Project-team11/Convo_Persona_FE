@@ -6,6 +6,13 @@ const ChatService = () => {
   const URL = "api/v1/chat";
 
   //All chat load
+  const loadAllChat = async () => {
+    const {
+      data: { message },
+    } = (await API.get(`${URL}`)) as AxiosResponse<Chat.LoadAllChatResDto>;
+
+    console.log(message);
+  };
 
   //New chat add (res is chat respense)
 
@@ -25,7 +32,7 @@ const ChatService = () => {
     storeRefresh(refreshToken);
   }; */
 
-  return [];
+  return [loadAllChat];
 };
 
 export default ChatService;

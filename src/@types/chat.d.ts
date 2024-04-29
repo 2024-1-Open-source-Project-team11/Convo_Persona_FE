@@ -6,7 +6,7 @@ declare namespace Chat {
     content: stirng;
   }
 
-  export interface AllChatResDto {
+  export interface LoadAllChatResDto {
     id: string;
     message: Message[];
   }
