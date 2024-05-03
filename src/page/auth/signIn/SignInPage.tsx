@@ -7,6 +7,8 @@ import Button from "@mui/material/Button";
 import { Container, SignInContainer } from "@/component/Container";
 import Logo from "@/component/Logo";
 
+import AuthService from "@/service/AuthService";
+
 const SignInPage = () => {
   const { control, handleSubmit } = useForm<User.SignInReqDto>({
     defaultValues: {
@@ -15,8 +17,10 @@ const SignInPage = () => {
     },
   });
 
+  const [signin] = AuthService();
+
   const onSubmit = (data: User.SignInReqDto) => {
-    console.log(data);
+    signin(data);
   };
 
   return (
@@ -79,7 +83,7 @@ const StyleButton = styled(Button)`
 
   box-shadow: 0px 5px 0 -0.5px black;
 
-  margin-bottom: 35px;
+  margin-bottom: 5px;
 
   :hover {
     background-color: #ff4646;
@@ -88,7 +92,7 @@ const StyleButton = styled(Button)`
 
     box-shadow: 0 0 0 0 black;
     margin-top: 5px;
-    margin-bottom: 30px;
+    margin-bottom: 0px;
 
     transition: 0s;
   }
