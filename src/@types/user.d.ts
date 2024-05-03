@@ -6,7 +6,11 @@ declare namespace User {
   }
 
   export interface SignInResDto {
+    id: string;
+  }
+
+  /* export interface SignInResDto {
     accessToken: string;
     refreshToken: string;
-  }
+  } */
 }
