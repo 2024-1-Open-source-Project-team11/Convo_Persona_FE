@@ -5,7 +5,7 @@ import Avatar from "@mui/material/Avatar";
 
 import useChatState from "@/store/chatStore";
 
-import { Background } from "@/component/Background";
+import { PinkBackground } from "@/component/Background";
 import {
   Container,
   ChatContainer,
@@ -57,9 +57,9 @@ const ChatPage = () => {
 
   return (
     <>
-      <Background />
+      <PinkBackground />
       <Container>
-        <Logo />
+        <Logo type="SMALL" />
         <ChatContainer>
           {chat.message.map((message) => (
             <>

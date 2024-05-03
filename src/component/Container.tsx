@@ -15,6 +15,26 @@ export const Container = styled.div`
   height: 630px;
 `;
 
+export const SignInContainer = styled.div`
+  background-color: #ff8e99;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  border-radius: 7px;
+
+  width: 100%;
+  height: 520px;
+
+  overflow-y: scroll;
+
+  ::-webkit-scrollbar {
+    display: none;
+  }
+`;
+
 export const ChatContainer = styled.div`
   background-color: white;
 

@@ -1,13 +1,22 @@
 import styled from "@emotion/styled";
 
-const Logo = () => (
+const Logo = ({ type }: { type: "BIG" | "SMALL" }) => (
   <>
-    <LogoImg src="/img/logo.png" alt="logo" />
+    {type === "SMALL" ? (
+      <SmallLogoImg src="/img/logo.png" alt="logo" />
+    ) : (
+      <BigLogoImg src="/img/logo.png" alt="logo" />
+    )}
   </>
 );
 
-const LogoImg = styled.img`
+const SmallLogoImg = styled.img`
   height: 60px;
+`;
+
+const BigLogoImg = styled.img`
+  width: 270px;
+  height: 140px;
 `;
 
 export default Logo;

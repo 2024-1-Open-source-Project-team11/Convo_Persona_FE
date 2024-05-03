@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 
-export const Background = styled.div`
+export const PinkBackground = styled.div`
   background-color: #ff8e99;
   position: fixed;
   top: 0px;
