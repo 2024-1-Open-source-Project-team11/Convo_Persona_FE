@@ -3,6 +3,11 @@ import styled from "@emotion/styled";
 import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
 import Avatar from "@mui/material/Avatar";
 
+import { useNavigate } from "react-router-dom";
+
+import useUserState from "@/store/userStore";
+import { PAGE_URL } from "@/config/path";
+
 import useChatState from "@/store/chatStore";
 
 import { PinkBackground } from "@/component/Background";
@@ -20,6 +25,13 @@ const ChatPage = () => {
   const { chat, setChat, addSendMessage, addResiveMessage } = useChatState(
     (state) => state
   );
+
+  const isSignIn = useUserState((state) => state.isSignIn);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!isSignIn) navigate(PAGE_URL.SignIn);
+  }, []);
 
   //Test code
   useEffect(() => {

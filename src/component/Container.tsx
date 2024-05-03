@@ -30,6 +30,8 @@ export const SignInContainer = styled.div`
 
   overflow-y: scroll;
 
+  margin-top: 10px;
+
   ::-webkit-scrollbar {
     display: none;
   }

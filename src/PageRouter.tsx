@@ -7,6 +7,7 @@ import {
 } from "react-router-dom";
 
 import Loading from "./component/Loading";
+
 import { PAGE_URL } from "./config/path";
 
 const SignIn = lazy(() => import("./page/auth/signIn/SignInPage"));
