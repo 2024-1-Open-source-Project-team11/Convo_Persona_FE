@@ -27,11 +27,11 @@ import Loading from "@/component/Loading";
 const ChatPage = () => {
   const { register, handleSubmit, setValue } = useForm<Chat.AddChatReqDto>();
 
-  const chat = useChatState((state) => state.chat);
   const addSendMessage = useChatState((state) => state.addSendMessage);
   const { postUserMessage, loadAllChat } = ChatService();
   const [standby, setStandby] = useState<boolean>(false);
 
+  const chat = useChatState((state) => state.chat);
   const isSignIn = useUserState((state) => state.isSignIn);
   const navigate = useNavigate();
 
