@@ -22,6 +22,7 @@ import {
   MessageContantContainer,
 } from "@/component/Container";
 import Logo from "@/component/Logo";
+import Loading from "@/component/Loading";
 
 const ChatPage = () => {
   const { register, handleSubmit, setValue } = useForm<Chat.AddChatReqDto>();
@@ -64,6 +65,21 @@ const ChatPage = () => {
       <Container>
         <Logo type="SMALL" />
         <ChatContainer>
+          {standby ? (
+            <GptMessageContainer>
+              <ProfileImg
+                alt="Gpt Profile Img"
+                src="img/gptImg.png"
+                sx={{ width: 40, height: 40 }}
+              />
+              <MessageContantContainer>
+                <ProfileText>Covon persona</ProfileText>
+                <Content style={{ height: "60px" }}>
+                  <Loading />
+                </Content>
+              </MessageContantContainer>
+            </GptMessageContainer>
+          ) : null}
           {chat.message.map((message) => (
             <>
               {message.sender === "USER" ? (
