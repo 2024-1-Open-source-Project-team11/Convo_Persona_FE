@@ -10,7 +10,7 @@ import useUserState from "@/store/userStore";
 import { PAGE_URL } from "@/config/path";
 
 import useChatState from "@/store/chatStore";
-import ChatService from "@/service/ChatService";
+//import ChatService from "@/service/ChatService";
 
 import { PinkBackground } from "@/component/Background";
 import {
@@ -28,7 +28,7 @@ const ChatPage = () => {
   const { register, handleSubmit, setValue } = useForm<Chat.AddChatReqDto>();
 
   const addSendMessage = useChatState((state) => state.addSendMessage);
-  const { postUserMessage, loadAllChat } = ChatService();
+  //const { postUserMessage, loadAllChat } = ChatService();
   const [standby, setStandby] = useState<boolean>(false);
 
   const chat = useChatState((state) => state.chat);
