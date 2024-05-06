@@ -31,7 +31,7 @@ const ChatService = () => {
 
   //Info reset
 
-  return [loadAllChat, postUserMessage];
+  return { postUserMessage, loadAllChat };
 };
 
 export default ChatService;

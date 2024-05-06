@@ -57,9 +57,18 @@ export const ChatContainer = styled.div`
   }
 `;
 
-export const ChatInputContainer = styled(ChatContainer)`
-  background-color: unset;
-  border: unset;
+export const ChatInputContainer = styled.form`
+  display: flex;
+
+  align-items: center;
+  flex-direction: column-reverse;
+
+  border-radius: 7px;
+
+  width: 100%;
+  height: 520px;
+
+  overflow-y: scroll;
 
   justify-content: space-between;
   flex-direction: row;

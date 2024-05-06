@@ -1,5 +1,6 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import styled from "@emotion/styled";
+import { useForm, SubmitHandler } from "react-hook-form";
 import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
 import Avatar from "@mui/material/Avatar";
 
@@ -9,6 +10,7 @@ import useUserState from "@/store/userStore";
 import { PAGE_URL } from "@/config/path";
 
 import useChatState from "@/store/chatStore";
+import ChatService from "@/service/ChatService";
 
 import { PinkBackground } from "@/component/Background";
 import {
@@ -22,50 +24,39 @@ import {
 import Logo from "@/component/Logo";
 
 const ChatPage = () => {
-  const { chat, setChat, addSendMessage, addResiveMessage } = useChatState(
-    (state) => state
-  );
+  const { register, handleSubmit, setValue } = useForm<Chat.AddChatReqDto>();
+
+  const chat = useChatState((state) => state.chat);
+  const addSendMessage = useChatState((state) => state.addSendMessage);
+  const { postUserMessage, loadAllChat } = ChatService();
+  const [standby, setStandby] = useState<boolean>(false);
 
   const isSignIn = useUserState((state) => state.isSignIn);
   const navigate = useNavigate();
 
-  useEffect(() => {
-    if (!isSignIn) navigate(PAGE_URL.SignIn);
-  }, []);
+  const onSubmit: SubmitHandler<Chat.AddChatReqDto> = (data) => {
+    addSendMessage(data.content);
+    setValue("content", "");
+    setStandby(true);
+  };
 
-  //Test code
   useEffect(() => {
-    setChat({
-      id: "1",
-      message: [
-        {
-          id: "2",
-          sender: "USER",
-          content:
-            "user contentuser contentuser contentuser contentuser contentuser contentuser content user content",
-        },
-      ],
-    });
-    addSendMessage(
-      "user content user contentuser contentuser content user content "
-    );
-    addResiveMessage({
-      sendMessage: {
-        id: "3",
-        sender: "USER",
-        content: "user content user content user content",
-      },
-      resiveMessage: {
-        id: "4",
-        sender: "GPT",
-        content: "gpt contentq asdasd",
-      },
-    });
+    if (!isSignIn) {
+      navigate(PAGE_URL.SignIn);
+      return;
+    }
+    //loadAllChat();
   }, []);
 
   useEffect(() => {
-    console.log(chat);
-  }, [chat]);
+    if (standby) {
+      //postUserMessage(chat.message[0].content).then();
+      setTimeout(function () {
+        console.log("TEST!");
+        setStandby(false);
+      }, 3000);
+    }
+  }, [standby]);
 
   return (
     <>
@@ -104,9 +95,12 @@ const ChatPage = () => {
           ))}
         </ChatContainer>
 
-        <ChatInputContainer>
-          <Input placeholder="Message to ConvoPersona..." />
-          <SubmitButton>
+        <ChatInputContainer onSubmit={handleSubmit(onSubmit)}>
+          <Input
+            placeholder="Message to ConvoPersona..."
+            {...register("content", { required: "message를 입력해주세요!" })}
+          />
+          <SubmitButton disabled={standby} onClick={handleSubmit(onSubmit)}>
             <ArrowUpwardIcon />
           </SubmitButton>
         </ChatInputContainer>
