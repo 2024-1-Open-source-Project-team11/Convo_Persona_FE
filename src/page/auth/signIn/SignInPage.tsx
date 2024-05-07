@@ -60,16 +60,6 @@ const Input = styled.input`
   font-size: 15px;
 `;
 
-const StyleInput = styled(TextField)`
-  width: 230px;
-
-  margin-bottom: 10px;
-
-  background-color: white;
-
-  border-radius: 5px;
-`;
-
 const StyleButton = styled(Button)`
   font-size: 17px;
   font-weight: bold;
