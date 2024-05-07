@@ -22,7 +22,7 @@ import {
   MessageContantContainer,
 } from "@/component/Container";
 import Logo from "@/component/Logo";
-import Loading from "@/component/Loading";
+import Loading from "@/component/GptLoading";
 
 const ChatPage = () => {
   const { register, handleSubmit, setValue } = useForm<Chat.AddChatReqDto>();

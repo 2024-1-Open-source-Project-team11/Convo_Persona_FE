@@ -13,6 +13,8 @@ const AuthService = () => {
   const URL = "api/v1/user";
 
   const signin = async (body: User.SignInReqDto) => {
+    console.log(body);
+
     const {
       data: { id },
     } = (await API.post(

@@ -5,17 +5,21 @@ import { MoonLoader } from "react-spinners";
 const Loading = () => {
   return (
     <LoadingWrapper>
-      <MoonLoader color="#cccccc" size={150} speedMultiplier={0.8} />
+      <MoonLoader color="white" size={34} speedMultiplier={0.8} />
     </LoadingWrapper>
   );
 };
 
 export const LoadingWrapper = styled.div`
+  background-color: #ff7a85;
+
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
+
+  z-index: 4;
 `;
 
 export default Loading;
