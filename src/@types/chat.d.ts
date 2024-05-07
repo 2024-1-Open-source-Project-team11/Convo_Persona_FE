@@ -16,15 +16,15 @@ declare namespace Chat {
   }
 
   export interface AddChatResDto {
-    sendMessage: Message;
-    resiveMessage: Message;
+    userMessage: Message;
+    gptMessage: Message;
   }
 
   //Store
   export interface ChatStore {
     chat: Chat;
     setChat: (chat: Chat) => void;
-    addSendMessage: (content: string) => void;
-    addResiveMessage: (res: AddChatResDto) => void;
+    addUserMessage: (content: string) => void;
+    addGptMessage: (res: AddChatResDto) => void;
   }
 }

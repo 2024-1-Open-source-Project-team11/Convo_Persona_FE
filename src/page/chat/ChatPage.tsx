@@ -27,7 +27,7 @@ import Loading from "@/component/GptLoading";
 const ChatPage = () => {
   const { register, handleSubmit, setValue } = useForm<Chat.AddChatReqDto>();
 
-  const addSendMessage = useChatState((state) => state.addSendMessage);
+  const addUserMessage = useChatState((state) => state.addUserMessage);
   //const { postUserMessage, loadAllChat } = ChatService();
   const { postUserMessage } = ChatService();
   const [standby, setStandby] = useState<boolean>(false);
@@ -37,7 +37,7 @@ const ChatPage = () => {
   const navigate = useNavigate();
 
   const onSubmit: SubmitHandler<Chat.AddChatReqDto> = (data) => {
-    addSendMessage(data.content);
+    addUserMessage(data.content);
     setValue("content", "");
     setStandby(true);
   };
@@ -99,7 +99,7 @@ const ChatPage = () => {
                     sx={{ width: 40, height: 40 }}
                   />
                   <MessageContantContainer>
-                    <ProfileText>Covon persona</ProfileText>
+                    <ProfileText>Convo Persona</ProfileText>
                     <Content>{message.content}</Content>
                   </MessageContantContainer>
                 </GptMessageContainer>
@@ -110,7 +110,7 @@ const ChatPage = () => {
 
         <ChatInputContainer onSubmit={handleSubmit(onSubmit)}>
           <Input
-            placeholder="Message to ConvoPersona..."
+            placeholder="Message to Convo Persona..."
             {...register("content", { required: "message를 입력해주세요!" })}
           />
           <SubmitButton disabled={standby} onClick={handleSubmit(onSubmit)}>

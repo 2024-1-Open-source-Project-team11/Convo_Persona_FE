@@ -12,7 +12,7 @@ const useChatState = create<Chat.ChatStore>((set) => ({
     set(() => ({ chat: chat }));
   },
 
-  addSendMessage: (content: string) => {
+  addUserMessage: (content: string) => {
     set((state) => {
       state.chat.message.unshift({
         id: undefined,
@@ -24,10 +24,10 @@ const useChatState = create<Chat.ChatStore>((set) => ({
     });
   },
 
-  addResiveMessage: (res: Chat.AddChatResDto) => {
+  addGptMessage: (res: Chat.AddChatResDto) => {
     set((state) => {
-      state.chat.message[0].id = res.sendMessage.id;
-      state.chat.message.unshift(res.resiveMessage);
+      state.chat.message[0].id = res.userMessage.id;
+      state.chat.message.unshift(res.gptMessage);
 
       return {};
     });

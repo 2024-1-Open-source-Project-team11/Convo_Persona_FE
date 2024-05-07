@@ -8,7 +8,7 @@ const ChatService = () => {
   const URL = "api/v1/chat";
 
   const setChat = useChatState((state) => state.setChat);
-  const addResiveMessage = useChatState((state) => state.addResiveMessage);
+  const addGptMessage = useChatState((state) => state.addGptMessage);
 
   //All chat load
   const loadAllChat = async () => {
@@ -26,10 +26,7 @@ const ChatService = () => {
       body
     )) as AxiosResponse<Chat.AddChatResDto>;
 
-    console.log(data);
-    console.log(data.resiveMessage + "/" + data.sendMessage);
-
-    addResiveMessage(data);
+    addGptMessage(data);
   };
 
   //Chat reset
