@@ -32,6 +32,15 @@ const useChatState = create<Chat.ChatStore>((set) => ({
       return {};
     });
   },
+
+  refreshChat: () => {
+    set(() => ({
+      chat: {
+        id: undefined,
+        message: [],
+      },
+    }));
+  },
 }));
 
 export default useChatState;

@@ -9,6 +9,7 @@ const ChatService = () => {
 
   const setChat = useChatState((state) => state.setChat);
   const addGptMessage = useChatState((state) => state.addGptMessage);
+  const refreshChat = useChatState((state) => state.refreshChat);
 
   //All chat load
   const loadAllChat = async () => {
@@ -31,9 +32,14 @@ const ChatService = () => {
 
   //Chat reset
 
-  //Info reset
+  //Info refresh
+  const refreshInfo = async () => {
+    await API.delete(`${URL}`);
 
-  return { postUserMessage, loadAllChat };
+    refreshChat();
+  };
+
+  return { postUserMessage, loadAllChat, refreshInfo };
 };
 
 export default ChatService;

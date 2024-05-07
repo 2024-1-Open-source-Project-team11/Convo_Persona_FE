@@ -29,7 +29,7 @@ const ChatPage = () => {
   const { register, handleSubmit, setValue } = useForm<Chat.AddChatReqDto>();
 
   const addUserMessage = useChatState((state) => state.addUserMessage);
-  //const { postUserMessage, loadAllChat } = ChatService();
+  //const { postUserMessage, loadAllChat, refreshInfo } = ChatService();
   const { postUserMessage } = ChatService();
   const [standby, setStandby] = useState<boolean>(false);
 
@@ -62,7 +62,11 @@ const ChatPage = () => {
       <PinkBackground />
       <Container>
         <Logo type="SMALL" />
-        <RefreshButton />
+        <RefreshButton
+          onClick={() => {
+            //refreshInfo;
+          }}
+        />
         <ChatContainer>
           {standby ? (
             <GptMessageContainer>

@@ -26,5 +26,6 @@ declare namespace Chat {
     setChat: (chat: Chat) => void;
     addUserMessage: (content: string) => void;
     addGptMessage: (res: AddChatResDto) => void;
+    refreshChat: () => void;
   }
 }
