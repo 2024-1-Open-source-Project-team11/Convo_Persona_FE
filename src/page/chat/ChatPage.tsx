@@ -3,6 +3,7 @@ import styled from "@emotion/styled";
 import { useForm, SubmitHandler } from "react-hook-form";
 import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
 import Avatar from "@mui/material/Avatar";
+import RefreshIcon from "@mui/icons-material/Refresh";
 
 import { useNavigate } from "react-router-dom";
 
@@ -61,6 +62,7 @@ const ChatPage = () => {
       <PinkBackground />
       <Container>
         <Logo type="SMALL" />
+        <RefreshButton />
         <ChatContainer>
           {standby ? (
             <GptMessageContainer>
@@ -157,6 +159,15 @@ const SubmitButton = styled.button`
     box-shadow: 0 0 0 0 black;
     margin-bottom: -5px;
   }
+`;
+
+const RefreshButton = styled(RefreshIcon)`
+  position: absolute;
+  top: 14px;
+  right: -7px;
+
+  font-size: 45px;
+  color: white;
 `;
 
 const ProfileImg = styled(Avatar)`
