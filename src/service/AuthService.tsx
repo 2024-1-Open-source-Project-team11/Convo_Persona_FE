@@ -10,7 +10,7 @@ const AuthService = () => {
   const setId = useUserState((state) => state.signIn);
   const navigate = useNavigate();
 
-  const URL = "api/v1/user";
+  const URL = "/api/v1/user";
 
   const signin = async (body: User.SignInReqDto) => {
     const {
