@@ -30,7 +30,7 @@ const ChatPage = () => {
 
   const addUserMessage = useChatState((state) => state.addUserMessage);
   //const { postUserMessage, loadAllChat, refreshInfo } = ChatService();
-  const { postUserMessage } = ChatService();
+  const { postUserMessage, refreshInfo } = ChatService();
   const [standby, setStandby] = useState<boolean>(false);
 
   const chat = useChatState((state) => state.chat);
@@ -64,7 +64,7 @@ const ChatPage = () => {
         <Logo type="SMALL" />
         <RefreshButton
           onClick={() => {
-            //refreshInfo;
+            refreshInfo();
           }}
         />
         <ChatContainer>
