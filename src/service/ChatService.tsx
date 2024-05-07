@@ -13,11 +13,12 @@ const ChatService = () => {
 
   //All chat load
   const loadAllChat = async () => {
-    const { data } = (await API.get(`${URL}`)) as AxiosResponse<Chat.Chat>;
+    const res = (await API.get(`${URL}`)) as AxiosResponse<Chat.Chat>;
 
-    console.log(data);
+    console.log(res);
+    console.log(res.data);
 
-    setChat(data);
+    setChat(res.data);
   };
 
   //New chat add (res is chat respense)
