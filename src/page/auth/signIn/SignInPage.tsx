@@ -47,14 +47,16 @@ const SignInPage = () => {
 const Input = styled.input`
   background-color: white;
 
-  width: 266px;
+  width: 220px;
   height: 40px;
 
   border: 0px white solid;
   border-left: 5px white solid;
-  border-radius: 7px;
+  border-radius: 3px;
 
   outline: none;
+
+  margin-bottom: 10px;
 
   font-size: 15px;
 `;

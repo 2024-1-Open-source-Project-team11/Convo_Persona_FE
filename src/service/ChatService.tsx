@@ -27,6 +27,7 @@ const ChatService = () => {
     )) as AxiosResponse<Chat.AddChatResDto>;
 
     console.log(data);
+    console.log(data.resiveMessage + "/" + data.sendMessage);
 
     addResiveMessage(data);
   };

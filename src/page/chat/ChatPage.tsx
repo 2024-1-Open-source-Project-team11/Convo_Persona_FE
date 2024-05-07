@@ -28,7 +28,8 @@ const ChatPage = () => {
   const { register, handleSubmit, setValue } = useForm<Chat.AddChatReqDto>();
 
   const addSendMessage = useChatState((state) => state.addSendMessage);
-  const { postUserMessage, loadAllChat } = ChatService();
+  //const { postUserMessage, loadAllChat } = ChatService();
+  const { postUserMessage } = ChatService();
   const [standby, setStandby] = useState<boolean>(false);
 
   const chat = useChatState((state) => state.chat);
@@ -46,7 +47,7 @@ const ChatPage = () => {
       navigate(PAGE_URL.SignIn);
       return;
     }
-    loadAllChat();
+    //loadAllChat();
   }, []);
 
   useEffect(() => {
