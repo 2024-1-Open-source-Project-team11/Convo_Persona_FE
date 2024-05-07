@@ -33,6 +33,7 @@ const SignInPage = () => {
           />{" "}
           <Input
             placeholder="비밀번호"
+            type="password"
             {...register("password", { required: "비밀번호를 입력해주세요!" })}
           />
           <StyleButton type="submit" variant="contained">
@@ -48,7 +49,7 @@ const Input = styled.input`
   background-color: white;
 
   width: 220px;
-  height: 40px;
+  height: 45px;
 
   border: 0px white solid;
   border-left: 5px white solid;
@@ -65,7 +66,7 @@ const StyleButton = styled(Button)`
   font-size: 17px;
   font-weight: bold;
   width: 230px;
-  height: 50px;
+  height: 45px;
 
   background-color: #ff4646;
 
