@@ -5,7 +5,7 @@ import { MoonLoader } from "react-spinners";
 const Loading = () => {
   return (
     <LoadingWrapper>
-      <MoonLoader color="#cccccc" size={150} speedMultiplier={0.8} />
+      <MoonLoader color="#ff7a85" size={150} speedMultiplier={0.8} />
     </LoadingWrapper>
   );
 };

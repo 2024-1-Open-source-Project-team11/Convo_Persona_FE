@@ -10,7 +10,7 @@ import useUserState from "@/store/userStore";
 import { PAGE_URL } from "@/config/path";
 
 import useChatState from "@/store/chatStore";
-//import ChatService from "@/service/ChatService";
+import ChatService from "@/service/ChatService";
 
 import { PinkBackground } from "@/component/Background";
 import {
@@ -28,7 +28,7 @@ const ChatPage = () => {
   const { register, handleSubmit, setValue } = useForm<Chat.AddChatReqDto>();
 
   const addSendMessage = useChatState((state) => state.addSendMessage);
-  //const { postUserMessage, loadAllChat } = ChatService();
+  const { postUserMessage, loadAllChat } = ChatService();
   const [standby, setStandby] = useState<boolean>(false);
 
   const chat = useChatState((state) => state.chat);
@@ -46,16 +46,12 @@ const ChatPage = () => {
       navigate(PAGE_URL.SignIn);
       return;
     }
-    //loadAllChat();
+    loadAllChat();
   }, []);
 
   useEffect(() => {
     if (standby) {
-      //postUserMessage(chat.message[0].content).then();
-      setTimeout(function () {
-        console.log("TEST!");
-        setStandby(false);
-      }, 3000);
+      postUserMessage(chat.message[0].content).then(() => setStandby(false));
     }
   }, [standby]);
 
