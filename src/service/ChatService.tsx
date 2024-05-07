@@ -14,6 +14,8 @@ const ChatService = () => {
   const loadAllChat = async () => {
     const { data } = (await API.get(`${URL}`)) as AxiosResponse<Chat.Chat>;
 
+    console.log(data);
+
     setChat(data);
   };
 
@@ -23,6 +25,8 @@ const ChatService = () => {
       `${URL}`,
       body
     )) as AxiosResponse<Chat.AddChatResDto>;
+
+    console.log(data);
 
     addResiveMessage(data);
   };
