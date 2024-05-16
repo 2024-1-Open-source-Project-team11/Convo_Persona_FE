@@ -61,6 +61,7 @@ const ChatPage = () => {
       <PinkBackground />
       <Container>
         <Logo type="SMALL" />
+        <MbtiContainer />
         <RefreshButton
           onClick={() => {
             refreshInfo();
@@ -112,7 +113,6 @@ const ChatPage = () => {
             </>
           ))}
         </ChatContainer>
-
         <ChatInputContainer onSubmit={handleSubmit(onSubmit)}>
           <Input
             placeholder="Message to Convo Persona..."
@@ -201,6 +201,16 @@ const Content = styled.div`
 
   color: inherit;
   font-size: 13px;
+`;
+
+const MbtiContainer = styled.div`
+  background-color: red;
+  position: absolute;
+
+  width: 130px;
+  height: 130px;
+
+  left: 380px;
 `;
 
 export default ChatPage;

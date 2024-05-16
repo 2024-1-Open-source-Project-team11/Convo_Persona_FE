@@ -3,6 +3,24 @@ declare namespace Chat {
     id: string | undefined;
     sender: "USER" | "GPT";
     content: stirng;
+    mbti:
+      | "UNDEFINED"
+      | "ISTJ "
+      | "ISFJ"
+      | "INFJ"
+      | "INTJ"
+      | "ISTP"
+      | "ISFP"
+      | "INFP"
+      | "INTP"
+      | "ESTP"
+      | "ESFP"
+      | "ENFP"
+      | "ENTP"
+      | "ESTJ"
+      | "ESFJ"
+      | "ENFJ"
+      | "ENTJ";
   }
 
   export interface Chat {
