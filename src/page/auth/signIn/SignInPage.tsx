@@ -24,8 +24,10 @@ const SignInPage = () => {
 
   return (
     <Container>
+      <Img src="/img/signin_logo.png" alt="logo" />
       <SignInContainer>
         <Logo type="BIG" />
+
         <SignInForm onSubmit={handleSubmit(onSubmit)}>
           <Input
             placeholder="아이디"
@@ -99,6 +101,14 @@ const SignInForm = styled.form`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+`;
+
+const Img = styled.img`
+  position: absolute;
+
+  top: -12px;
+  left: -29px;
+  width: 150px;
 `;
 
 export default SignInPage;
