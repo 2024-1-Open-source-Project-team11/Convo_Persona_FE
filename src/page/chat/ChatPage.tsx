@@ -61,6 +61,7 @@ const ChatPage = () => {
       <PinkBackground />
       <Container>
         <Logo type="SMALL" />
+        <Img src="/img/signin_logo.png" alt="logo" />
         <MbtiContainer />
         <RefreshButton
           onClick={() => {
@@ -204,13 +205,25 @@ const Content = styled.div`
 `;
 
 const MbtiContainer = styled.div`
-  background-color: red;
   position: absolute;
+
+  border: 5px white solid;
+  border-radius: 10px;
 
   width: 130px;
   height: 130px;
 
-  left: 380px;
+  left: -200px;
+`;
+
+const Img = styled.img`
+  position: absolute;
+
+  top: 171px;
+  left: -230px;
+  width: 150px;
+
+  z-index: 3;
 `;
 
 export default ChatPage;
