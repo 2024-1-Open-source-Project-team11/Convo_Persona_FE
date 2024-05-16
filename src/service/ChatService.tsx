@@ -5,7 +5,7 @@ import { API } from "@/config/axios";
 import useChatState from "@/store/chatStore";
 
 const ChatService = () => {
-  const URL = "api/v1/chat";
+  const URL = "/api/v1/chat";
 
   const setChat = useChatState((state) => state.setChat);
   const addGptMessage = useChatState((state) => state.addGptMessage);
@@ -14,9 +14,6 @@ const ChatService = () => {
   //All chat load
   const loadAllChat = async () => {
     const { data } = (await API.get(`${URL}`)) as AxiosResponse<Chat.Chat>;
-
-    console.log(data);
-
     setChat(data);
   };
 

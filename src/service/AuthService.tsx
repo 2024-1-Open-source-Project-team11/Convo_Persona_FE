@@ -7,10 +7,10 @@ import { PAGE_URL } from "@/config/path";
 import useUserState from "@/store/userStore";
 
 const AuthService = () => {
-  const signIn = useUserState((state) => state.signIn);
+  const setId = useUserState((state) => state.signIn);
   const navigate = useNavigate();
 
-  const URL = "api/v1/user";
+  const URL = "/api/v1/user";
 
   const signin = async (body: User.SignInReqDto) => {
     const {
@@ -21,7 +21,7 @@ const AuthService = () => {
     )) as AxiosResponse<User.SignInResDto>;
 
     setAccess(id);
-    signIn(id);
+    setId(id);
 
     navigate(PAGE_URL.Chat);
   };
