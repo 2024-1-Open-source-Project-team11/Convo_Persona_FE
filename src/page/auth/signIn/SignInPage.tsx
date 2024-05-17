@@ -1,12 +1,11 @@
-import styled from "@emotion/styled";
 import { useForm } from "react-hook-form";
-
-import Button from "@mui/material/Button";
 
 import { Container, SignInContainer } from "@/component/Container";
 import Logo from "@/component/Logo";
 
 import AuthService from "@/service/AuthService";
+
+import * as Styles from "./SignInPageStyles";
 
 const SignInPage = () => {
   const { register, handleSubmit } = useForm<User.SignInReqDto>({
@@ -24,91 +23,27 @@ const SignInPage = () => {
 
   return (
     <Container>
-      <Img src="/img/signin_logo.png" alt="logo" />
+      <Styles.Img src="/img/signin_logo.png" alt="logo" />
       <SignInContainer>
         <Logo type="BIG" />
 
-        <SignInForm onSubmit={handleSubmit(onSubmit)}>
-          <Input
+        <Styles.SignInForm onSubmit={handleSubmit(onSubmit)}>
+          <Styles.Input
             placeholder="아이디"
             {...register("name", { required: "아이디를 입력해주세요!" })}
           />{" "}
-          <Input
+          <Styles.Input
             placeholder="비밀번호"
             type="password"
             {...register("password", { required: "비밀번호를 입력해주세요!" })}
           />
-          <StyleButton type="submit" variant="contained">
+          <Styles.StyleButton type="submit" variant="contained">
             로그인
-          </StyleButton>
-        </SignInForm>
+          </Styles.StyleButton>
+        </Styles.SignInForm>
       </SignInContainer>
     </Container>
   );
 };
-
-const Input = styled.input`
-  background-color: white;
-
-  width: 220px;
-  height: 45px;
-
-  border: 0px white solid;
-  border-left: 5px white solid;
-  border-radius: 3px;
-
-  outline: none;
-
-  margin-bottom: 10px;
-
-  font-size: 15px;
-`;
-
-const StyleButton = styled(Button)`
-  font-size: 17px;
-  font-weight: bold;
-  width: 230px;
-  height: 45px;
-
-  background-color: #ff4646;
-
-  border: 0px;
-
-  box-shadow: 0px 5px 0 -0.5px black;
-
-  margin-bottom: 5px;
-
-  :hover {
-    background-color: #ff4646;
-
-    border: 0px;
-
-    box-shadow: 0 0 0 0 black;
-    margin-top: 5px;
-    margin-bottom: 0px;
-
-    transition: 0s;
-  }
-`;
-
-const SignInForm = styled.form`
-  width: 20%;
-  aspect-ratio: 1;
-
-  z-index: 2;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-`;
-
-const Img = styled.img`
-  position: absolute;
-
-  top: -12px;
-  left: -29px;
-  width: 150px;
-`;
 
 export default SignInPage;
