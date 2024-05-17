@@ -4,8 +4,17 @@ import RefreshIcon from "@mui/icons-material/Refresh";
 import SendIcon from "@mui/icons-material/Send";
 
 export const FeedbackButton = styled(SendIcon)`
-  font-size: 18px;
-  margin-bottom: 5px;
+  font-size: 19px;
+  margin-bottom: 7px;
+
+  filter: drop-shadow(0px 3px 0px black);
+
+  &:hover {
+    filter: drop-shadow(0px 0px 0px black);
+
+    margin-bottom: 4px;
+    margin-top: 3px;
+  }
 `;
 
 export const Input = styled.input`

@@ -1,3 +1,7 @@
+import { useState } from "react";
+
+import SendIcon from "@mui/icons-material/Send";
+
 import {
   UserMessageContainer,
   GptMessageContainer,
@@ -11,53 +15,63 @@ type Prop = {
   message: Chat.Message | undefined;
 };
 
-const Message = ({ message }: Prop) => (
-  <>
-    {!message ? (
-      <GptMessageContainer>
-        <Styles.ProfileImg
-          alt="Gpt Profile Img"
-          src="img/gptImg.png"
-          sx={{ width: 40, height: 40 }}
-        />
-        <MessageContantContainer>
-          <Styles.ProfileText>Covon persona</Styles.ProfileText>
-          <Styles.Content style={{ height: "60px" }}>
-            <Loading />
-          </Styles.Content>
-        </MessageContantContainer>
-      </GptMessageContainer>
-    ) : (
-      <>
-        {message.sender === "USER" ? (
-          <UserMessageContainer>
-            <Styles.ProfileImg
-              alt="User Profile Img"
-              src="img/userImg.png"
-              sx={{ width: 40, height: 40 }}
-            />
-            <MessageContantContainer>
-              <Styles.ProfileText>User</Styles.ProfileText>
-              <Styles.Content>{message.content}</Styles.Content>
-            </MessageContantContainer>
-          </UserMessageContainer>
-        ) : (
-          <GptMessageContainer>
-            <Styles.ProfileImg
-              alt="Gpt Profile Img"
-              src="img/gptImg.png"
-              sx={{ width: 40, height: 40 }}
-            />
-            <MessageContantContainer>
-              <Styles.ProfileText>Convo Persona</Styles.ProfileText>
-              <Styles.Content>{message.content}</Styles.Content>
-              <Styles.FeedbackButton />
-            </MessageContantContainer>
-          </GptMessageContainer>
-        )}
-      </>
-    )}
-  </>
-);
+const Message = ({ message }: Prop) => {
+  const [feedBackOn, setFeedBackOn] = useState(false);
+
+  return (
+    <>
+      {!message ? (
+        <GptMessageContainer>
+          <Styles.ProfileImg
+            alt="Gpt Profile Img"
+            src="img/gptImg.png"
+            sx={{ width: 40, height: 40 }}
+          />
+          <MessageContantContainer>
+            <Styles.ProfileText>Covon persona</Styles.ProfileText>
+            <Styles.Content style={{ height: "60px" }}>
+              <Loading />
+            </Styles.Content>
+          </MessageContantContainer>
+        </GptMessageContainer>
+      ) : (
+        <>
+          {message.sender === "USER" ? (
+            <UserMessageContainer>
+              <Styles.ProfileImg
+                alt="User Profile Img"
+                src="img/userImg.png"
+                sx={{ width: 40, height: 40 }}
+              />
+              <MessageContantContainer>
+                <Styles.ProfileText>User</Styles.ProfileText>
+                <Styles.Content>{message.content}</Styles.Content>
+              </MessageContantContainer>
+            </UserMessageContainer>
+          ) : (
+            <GptMessageContainer>
+              <Styles.ProfileImg
+                alt="Gpt Profile Img"
+                src="img/gptImg.png"
+                sx={{ width: 40, height: 40 }}
+              />
+              <MessageContantContainer>
+                <Styles.ProfileText>Convo Persona</Styles.ProfileText>
+                <Styles.Content>{message.content}</Styles.Content>
+                {!feedBackOn ? (
+                  <Styles.FeedbackButton
+                    onClick={() => {
+                      setFeedBackOn(true);
+                    }}
+                  />
+                ) : null}
+              </MessageContantContainer>
+            </GptMessageContainer>
+          )}
+        </>
+      )}
+    </>
+  );
+};
 
 export default Message;

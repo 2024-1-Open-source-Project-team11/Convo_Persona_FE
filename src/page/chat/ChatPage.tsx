@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
-
 import { useForm, SubmitHandler } from "react-hook-form";
+
 import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
-import SendIcon from "@mui/icons-material/Send";
 
 import { useNavigate } from "react-router-dom";
 
@@ -17,9 +16,6 @@ import {
   Container,
   ChatContainer,
   ChatInputContainer,
-  UserMessageContainer,
-  GptMessageContainer,
-  MessageContantContainer,
 } from "@/component/Container";
 import Logo from "@/component/Logo";
 import Loading from "@/component/GptLoading";
