@@ -3,20 +3,6 @@ import Avatar from "@mui/material/Avatar";
 import RefreshIcon from "@mui/icons-material/Refresh";
 import SendIcon from "@mui/icons-material/Send";
 
-export const FeedbackButton = styled(SendIcon)`
-  font-size: 19px;
-  margin-bottom: 7px;
-
-  filter: drop-shadow(0px 3px 0px black);
-
-  &:hover {
-    filter: drop-shadow(0px 0px 0px black);
-
-    margin-bottom: 4px;
-    margin-top: 3px;
-  }
-`;
-
 export const Input = styled.input`
   background-color: white;
 
@@ -102,7 +88,8 @@ export const MbtiContainer = styled.div`
   width: 130px;
   height: 130px;
 
-  left: -200px;
+  left: -150px;
+  top: 60px;
 
   display: flex;
   justify-content: space-between;
@@ -144,9 +131,50 @@ export const MbtiSubText = styled.div`
 export const Img = styled.img`
   position: absolute;
 
-  top: 171px;
-  left: -230px;
+  top: -10px;
+  left: -180px;
   width: 150px;
 
   z-index: 3;
+`;
+
+export const FeedbackButton = styled(SendIcon)`
+  font-size: 19px;
+  margin-bottom: 7px;
+
+  filter: drop-shadow(0px 3px 0px black);
+
+  &:hover {
+    filter: drop-shadow(0px 0px 0px black);
+
+    margin-bottom: 4px;
+    margin-top: 3px;
+  }
+`;
+
+export const FeedbackContainer = styled.form`
+  position: relative;
+  width: 92%;
+  height: 100px;
+
+  margin-bottom: 23px;
+`;
+
+export const FeedbackInput = styled.textarea`
+  width: 100%;
+  height: 100%;
+
+  border: 5px white solid;
+  background-color: white;
+`;
+
+export const FeedbackSubmitButton = styled(SubmitButton)`
+  position: absolute;
+  bottom: -9px;
+  right: -9px;
+
+  :hover {
+    box-shadow: 0 0 0 0 black;
+    margin-bottom: 0;
+  }
 `;

@@ -4,7 +4,15 @@ const useChatState = create<Chat.ChatStore>((set) => ({
   //State
   chat: {
     id: undefined,
-    message: [{ id: "3", sender: "GPT", content: "content", mbti: "ENTJ" }],
+    message: [
+      {
+        id: "3",
+        sender: "GPT",
+        content:
+          "contentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontent",
+        mbti: "ENTJ",
+      },
+    ],
   },
 
   //Set function

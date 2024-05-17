@@ -64,7 +64,14 @@ const Message = ({ message }: Prop) => {
                       setFeedBackOn(true);
                     }}
                   />
-                ) : null}
+                ) : (
+                  <Styles.FeedbackContainer>
+                    <Styles.FeedbackInput placeholder="Write Feedback..."></Styles.FeedbackInput>
+                    <Styles.FeedbackSubmitButton>
+                      <SendIcon />
+                    </Styles.FeedbackSubmitButton>
+                  </Styles.FeedbackContainer>
+                )}
               </MessageContantContainer>
             </GptMessageContainer>
           )}
