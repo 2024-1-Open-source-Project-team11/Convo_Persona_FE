@@ -62,7 +62,10 @@ const ChatPage = () => {
       <Container>
         <Logo type="SMALL" />
         <Img src="/img/signin_logo.png" alt="logo" />
-        <MbtiContainer />
+        <MbtiContainer>
+          <MbtiSubText>User's MBTI</MbtiSubText>
+          <MbtiMainText>ENTJ</MbtiMainText>
+        </MbtiContainer>
         <RefreshButton
           onClick={() => {
             refreshInfo();
@@ -214,6 +217,42 @@ const MbtiContainer = styled.div`
   height: 130px;
 
   left: -200px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+`;
+
+const MbtiMainText = styled.div`
+  color: inherit;
+
+  font-size: 46px;
+  font-weight: bold;
+
+  margin-top: 3px;
+
+  color: white;
+
+  margin-top: 10px;
+  margin-bottom: 20px;
+`;
+
+const MbtiSubText = styled.div`
+  background-color: white;
+  width: 100%;
+  height: 30%;
+
+  color: #ff7a85;
+
+  border: 3px white solid;
+
+  font-size: 18px;
+  font-weight: bold;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 const Img = styled.img`
