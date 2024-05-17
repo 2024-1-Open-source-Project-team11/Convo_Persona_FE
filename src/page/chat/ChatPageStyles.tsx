@@ -1,6 +1,12 @@
 import styled from "@emotion/styled";
 import Avatar from "@mui/material/Avatar";
 import RefreshIcon from "@mui/icons-material/Refresh";
+import SendIcon from "@mui/icons-material/Send";
+
+export const FeedbackButton = styled(SendIcon)`
+  font-size: 18px;
+  margin-bottom: 5px;
+`;
 
 export const Input = styled.input`
   background-color: white;

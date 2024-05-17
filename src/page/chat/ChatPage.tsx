@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 
 import { useForm, SubmitHandler } from "react-hook-form";
 import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
+import SendIcon from "@mui/icons-material/Send";
 
 import { useNavigate } from "react-router-dom";
 
@@ -22,6 +23,7 @@ import {
 } from "@/component/Container";
 import Logo from "@/component/Logo";
 import Loading from "@/component/GptLoading";
+import Message from "./Message";
 
 import * as Styles from "./ChatPageStyles";
 
@@ -30,6 +32,7 @@ const ChatPage = () => {
 
   const addUserMessage = useChatState((state) => state.addUserMessage);
   const { postUserMessage, loadAllChat, refreshInfo } = ChatService();
+
   const [standby, setStandby] = useState<boolean>(false);
 
   const chat = useChatState((state) => state.chat);
@@ -62,6 +65,12 @@ const ChatPage = () => {
       <Container>
         <Logo type="SMALL" />
         <Styles.Img src="/img/signin_logo.png" alt="logo" />
+        <Styles.RefreshButton
+          onClick={() => {
+            refreshInfo();
+          }}
+        />
+
         <Styles.MbtiContainer>
           <Styles.MbtiSubText>User's MBTI</Styles.MbtiSubText>
           <Styles.MbtiMainText>
@@ -72,57 +81,14 @@ const ChatPage = () => {
             )}
           </Styles.MbtiMainText>
         </Styles.MbtiContainer>
-        <Styles.RefreshButton
-          onClick={() => {
-            refreshInfo();
-          }}
-        />
+
         <ChatContainer>
-          {standby ? (
-            <GptMessageContainer>
-              <Styles.ProfileImg
-                alt="Gpt Profile Img"
-                src="img/gptImg.png"
-                sx={{ width: 40, height: 40 }}
-              />
-              <MessageContantContainer>
-                <Styles.ProfileText>Covon persona</Styles.ProfileText>
-                <Styles.Content style={{ height: "60px" }}>
-                  <Loading />
-                </Styles.Content>
-              </MessageContantContainer>
-            </GptMessageContainer>
-          ) : null}
+          {standby ? <Message message={undefined} /> : null}
           {chat.message.map((message) => (
-            <>
-              {message.sender === "USER" ? (
-                <UserMessageContainer>
-                  <Styles.ProfileImg
-                    alt="User Profile Img"
-                    src="img/userImg.png"
-                    sx={{ width: 40, height: 40 }}
-                  />
-                  <MessageContantContainer>
-                    <Styles.ProfileText>User</Styles.ProfileText>
-                    <Styles.Content>{message.content}</Styles.Content>
-                  </MessageContantContainer>
-                </UserMessageContainer>
-              ) : (
-                <GptMessageContainer>
-                  <Styles.ProfileImg
-                    alt="Gpt Profile Img"
-                    src="img/gptImg.png"
-                    sx={{ width: 40, height: 40 }}
-                  />
-                  <MessageContantContainer>
-                    <Styles.ProfileText>Convo Persona</Styles.ProfileText>
-                    <Styles.Content>{message.content}</Styles.Content>
-                  </MessageContantContainer>
-                </GptMessageContainer>
-              )}
-            </>
+            <Message message={message} />
           ))}
         </ChatContainer>
+
         <ChatInputContainer onSubmit={handleSubmit(onSubmit)}>
           <Styles.Input
             placeholder="Message to Convo Persona..."
