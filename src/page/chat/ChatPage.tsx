@@ -19,6 +19,7 @@ import {
 } from "@/component/Container";
 import Logo from "@/component/Logo";
 import Loading from "@/component/GptLoading";
+import MbtiLoading from "@/component/MbtiLoading";
 import Message from "./Message";
 
 import * as Styles from "./ChatPageStyles";
@@ -73,7 +74,7 @@ const ChatPage = () => {
             {chat.message[0] && chat.message[0].mbti != "UNDEFINED" ? (
               chat.message[0].mbti
             ) : (
-              <Loading />
+              <MbtiLoading />
             )}
           </Styles.MbtiMainText>
         </Styles.MbtiContainer>
