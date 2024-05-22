@@ -4,7 +4,7 @@ const FeedbackService = () => {
   const URL = "/api/v1/feedback";
 
   const uploadFeedback = async (feedback: Chat.Feedback) => {
-    console.log(feedback);
+    //console.log(feedback);
     await API.post(`${URL}`, feedback);
   };
 

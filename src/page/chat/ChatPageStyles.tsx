@@ -48,6 +48,17 @@ export const RefreshButton = styled(RefreshIcon)`
 
   font-size: 45px;
   color: white;
+
+  margin-bottom: 3px;
+
+  filter: drop-shadow(0px 3px 0px black);
+
+  &:hover {
+    filter: none;
+
+    margin-bottom: 0px;
+    margin-top: 3px;
+  }
 `;
 
 export const ProfileImg = styled(Avatar)`
@@ -143,13 +154,13 @@ export const FeedbackButton = styled(FeedbackIcon)`
   position: absolute;
 
   font-size: 19px;
-  top: 2px;
+  top: 3px;
   right: 6px;
 
   filter: drop-shadow(0px 3px 0px black);
 
   &:hover {
-    filter: drop-shadow(0px 0px 0px black);
+    filter: none;
 
     margin-bottom: 4px;
     margin-top: 3px;
@@ -170,7 +181,9 @@ export const FeedbackInput = styled.textarea`
 
   border: 5px white solid;
   background-color: white;
-  border-radius: 3px;
+  border-radius: 5px;
+
+  font-family: Helvetica, Arial, sans-serif;
 
   ::placeholder {
     font-family: Helvetica, Arial, sans-serif;
