@@ -2,7 +2,6 @@ import styled from "@emotion/styled";
 import Avatar from "@mui/material/Avatar";
 import RefreshIcon from "@mui/icons-material/Refresh";
 import FeedbackIcon from "@mui/icons-material/Feedback";
-import SendIcon from "@mui/icons-material/Send";
 
 export const Input = styled.input`
   background-color: white;
