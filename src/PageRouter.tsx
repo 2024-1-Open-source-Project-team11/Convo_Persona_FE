@@ -10,12 +10,15 @@ import Loading from "./component/Loading";
 
 import { PAGE_URL } from "./config/path";
 
+import AppStyles from "./AppStyles";
+
 const SignIn = lazy(() => import("./page/auth/signIn/SignInPage"));
 const BasicTest = lazy(() => import("./page/chat/ChatPage"));
 
 const PageRouter = () => (
   <Suspense fallback={<Loading />}>
     <RootRouter>
+      <AppStyles />
       <Routes>
         <Route>
           <Route index element={<Navigate to={PAGE_URL.SignIn} replace />} />

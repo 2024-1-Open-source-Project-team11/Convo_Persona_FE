@@ -28,6 +28,11 @@ declare namespace Chat {
     message: Message[];
   }
 
+  export interface Feedback {
+    id: string | undefined;
+    feedback: string | undefined;
+  }
+
   //DTO
   export interface AddChatReqDto {
     content: stirng;

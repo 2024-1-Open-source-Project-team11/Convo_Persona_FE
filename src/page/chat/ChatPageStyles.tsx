@@ -1,6 +1,7 @@
 import styled from "@emotion/styled";
 import Avatar from "@mui/material/Avatar";
 import RefreshIcon from "@mui/icons-material/Refresh";
+import FeedbackIcon from "@mui/icons-material/Feedback";
 import SendIcon from "@mui/icons-material/Send";
 
 export const Input = styled.input`
@@ -138,9 +139,10 @@ export const Img = styled.img`
   z-index: 3;
 `;
 
-export const FeedbackButton = styled(SendIcon)`
-  font-size: 19px;
+export const FeedbackButton = styled(FeedbackIcon)`
+  font-size: 21px;
   margin-bottom: 7px;
+  margin-left: -2px;
 
   filter: drop-shadow(0px 3px 0px black);
 
@@ -166,6 +168,11 @@ export const FeedbackInput = styled.textarea`
 
   border: 5px white solid;
   background-color: white;
+  border-radius: 3px;
+
+  ::placeholder {
+    font-family: Helvetica, Arial, sans-serif;
+  }
 `;
 
 export const FeedbackSubmitButton = styled(SubmitButton)`
@@ -177,4 +184,18 @@ export const FeedbackSubmitButton = styled(SubmitButton)`
     box-shadow: 0 0 0 0 black;
     margin-bottom: 0;
   }
+`;
+
+export const CloseButton = styled.button`
+  position: absolute;
+
+  background-color: white;
+
+  border: 0px;
+
+  top: 7px;
+  right: -8px;
+
+  font-size: 13px;
+  color: gray;
 `;

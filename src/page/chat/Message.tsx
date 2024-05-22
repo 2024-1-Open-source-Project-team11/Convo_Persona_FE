@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 
 import SendIcon from "@mui/icons-material/Send";
 
@@ -11,12 +11,18 @@ import Loading from "@/component/GptLoading";
 
 import * as Styles from "./ChatPageStyles";
 
+import FeedbackService from "@/service/FeedbackService";
+
 type Prop = {
   message: Chat.Message | undefined;
 };
 
 const Message = ({ message }: Prop) => {
   const [feedBackOn, setFeedBackOn] = useState(false);
+
+  const textAreaRef = useRef<HTMLTextAreaElement>(null);
+
+  const { uploadFeedback } = FeedbackService();
 
   return (
     <>
@@ -66,8 +72,31 @@ const Message = ({ message }: Prop) => {
                   />
                 ) : (
                   <Styles.FeedbackContainer>
-                    <Styles.FeedbackInput placeholder="Write Feedback..."></Styles.FeedbackInput>
-                    <Styles.FeedbackSubmitButton>
+                    <Styles.CloseButton
+                      onClick={() => {
+                        setFeedBackOn(false);
+                      }}
+                    >
+                      X
+                    </Styles.CloseButton>
+                    <Styles.FeedbackInput
+                      placeholder="Write Feedback..."
+                      ref={textAreaRef}
+                    ></Styles.FeedbackInput>
+                    <Styles.FeedbackSubmitButton
+                      onClick={() => {
+                        if (
+                          textAreaRef.current &&
+                          textAreaRef.current.value != ""
+                        ) {
+                          uploadFeedback({
+                            id: message.id,
+                            feedback: textAreaRef.current.value,
+                          });
+                          setFeedBackOn(false);
+                        }
+                      }}
+                    >
                       <SendIcon />
                     </Styles.FeedbackSubmitButton>
                   </Styles.FeedbackContainer>
