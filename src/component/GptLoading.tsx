@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 
 import { MoonLoader } from "react-spinners";
 
-const Loading = () => {
+const GptLoading = () => {
   return (
     <LoadingWrapper>
       <MoonLoader color="white" size={34} speedMultiplier={0.8} />
@@ -11,8 +11,6 @@ const Loading = () => {
 };
 
 export const LoadingWrapper = styled.div`
-  background-color: #ff7a85;
-
   display: flex;
   justify-content: center;
   align-items: center;
@@ -22,4 +20,4 @@ export const LoadingWrapper = styled.div`
   z-index: 4;
 `;
 
-export default Loading;
+export default GptLoading;

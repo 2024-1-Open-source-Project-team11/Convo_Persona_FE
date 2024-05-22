@@ -18,6 +18,7 @@ const useChatState = create<Chat.ChatStore>((set) => ({
         id: undefined,
         sender: "USER",
         content: content,
+        mbti: "UNDEFINED",
       });
 
       return {};
