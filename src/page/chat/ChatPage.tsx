@@ -18,7 +18,6 @@ import {
   ChatInputContainer,
 } from "@/component/Container";
 import Logo from "@/component/Logo";
-import Loading from "@/component/GptLoading";
 import MbtiLoading from "@/component/MbtiLoading";
 import Message from "./Message";
 
