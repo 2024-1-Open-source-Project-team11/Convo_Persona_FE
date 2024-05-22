@@ -140,9 +140,11 @@ export const Img = styled.img`
 `;
 
 export const FeedbackButton = styled(FeedbackIcon)`
-  font-size: 21px;
-  margin-bottom: 7px;
-  margin-left: -2px;
+  position: absolute;
+
+  font-size: 19px;
+  top: 2px;
+  right: 6px;
 
   filter: drop-shadow(0px 3px 0px black);
 

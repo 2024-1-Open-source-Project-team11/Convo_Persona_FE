@@ -82,6 +82,8 @@ export const ChatInputContainer = styled.form`
 `;
 
 export const GptMessageContainer = styled(ChatContainer)`
+  position: relative;
+
   color: white;
 
   background-color: #ff7a85;

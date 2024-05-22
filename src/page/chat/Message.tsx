@@ -61,16 +61,17 @@ const Message = ({ message }: Prop) => {
                 src="img/gptImg.png"
                 sx={{ width: 40, height: 40 }}
               />
+              {!feedBackOn ? (
+                <Styles.FeedbackButton
+                  onClick={() => {
+                    setFeedBackOn(true);
+                  }}
+                />
+              ) : null}
               <MessageContantContainer>
                 <Styles.ProfileText>Convo Persona</Styles.ProfileText>
                 <Styles.Content>{message.content}</Styles.Content>
-                {!feedBackOn ? (
-                  <Styles.FeedbackButton
-                    onClick={() => {
-                      setFeedBackOn(true);
-                    }}
-                  />
-                ) : (
+                {feedBackOn ? (
                   <Styles.FeedbackContainer>
                     <Styles.CloseButton
                       onClick={() => {
@@ -100,7 +101,7 @@ const Message = ({ message }: Prop) => {
                       <SendIcon />
                     </Styles.FeedbackSubmitButton>
                   </Styles.FeedbackContainer>
-                )}
+                ) : null}
               </MessageContantContainer>
             </GptMessageContainer>
           )}
