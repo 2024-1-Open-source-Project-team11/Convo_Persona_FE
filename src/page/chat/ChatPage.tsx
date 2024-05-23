@@ -70,8 +70,10 @@ const ChatPage = () => {
         <Styles.MbtiContainer>
           <Styles.MbtiSubText>User's MBTI</Styles.MbtiSubText>
           <Styles.MbtiMainText>
-            {chat.message[0] && chat.message[0].mbti != "UNDEFINED" ? (
-              chat.message[0].mbti
+            {chat.message[1] &&
+            chat.message[1].mbti != "UNDEFINED" &&
+            chat.message.length >= 10 ? (
+              chat.message[1].mbti
             ) : (
               <MbtiLoading />
             )}

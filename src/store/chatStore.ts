@@ -28,6 +28,7 @@ const useChatState = create<Chat.ChatStore>((set) => ({
   addGptMessage: (res: Chat.AddChatResDto) => {
     set((state) => {
       state.chat.message[0].id = res.userMessage.id;
+      state.chat.message[0].mbti = res.userMessage.mbti;
       state.chat.message.unshift(res.gptMessage);
 
       return {};
