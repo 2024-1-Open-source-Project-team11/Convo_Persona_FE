@@ -23,6 +23,8 @@ import Message from "./Message";
 
 import * as Styles from "./ChatPageStyles";
 
+import { MBITRESULTCOUNT } from "@/PageRouter";
+
 const ChatPage = () => {
   const { register, handleSubmit, setValue } = useForm<Chat.AddChatReqDto>();
 
@@ -71,8 +73,9 @@ const ChatPage = () => {
           <Styles.MbtiSubText>User's MBTI</Styles.MbtiSubText>
           <Styles.MbtiMainText>
             {chat.message[1] &&
+            chat.message[1].mbti &&
             chat.message[1].mbti != "UNDEFINED" &&
-            chat.message.length >= 10 ? (
+            chat.message.length >= MBITRESULTCOUNT ? (
               chat.message[1].mbti
             ) : (
               <MbtiLoading />

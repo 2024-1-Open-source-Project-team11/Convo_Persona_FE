@@ -12,6 +12,9 @@ import { PAGE_URL } from "./config/path";
 
 import AppStyles from "./AppStyles";
 
+//message number that concludes the mbti predicted value
+export const MBITRESULTCOUNT = 8;
+
 const SignIn = lazy(() => import("./page/auth/signIn/SignInPage"));
 const BasicTest = lazy(() => import("./page/chat/ChatPage"));
 
