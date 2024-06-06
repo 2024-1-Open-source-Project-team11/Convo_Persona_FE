@@ -1,4 +1,5 @@
 import { create } from "zustand";
+import { decryptMessage } from "@/config/crypto";
 
 const useChatState = create<Chat.ChatStore>((set) => ({
   //State
@@ -9,7 +10,16 @@ const useChatState = create<Chat.ChatStore>((set) => ({
 
   //Set function
   setChat: (chat: Chat.Chat) => {
-    set(() => ({ chat: chat }));
+    const decryptMessages: Chat.Message[] = [];
+    chat.message.map((message) => {
+      decryptMessages.push({
+        id: message.id,
+        sender: message.sender,
+        content: decryptMessage(message.content),
+        mbti: message.mbti,
+      });
+    });
+    set(() => ({ chat: { id: chat.id, message: decryptMessages } }));
   },
 
   addUserMessage: (content: string) => {
@@ -29,7 +39,12 @@ const useChatState = create<Chat.ChatStore>((set) => ({
     set((state) => {
       state.chat.message[0].id = res.userMessage.id;
       state.chat.message[0].mbti = res.userMessage.mbti;
-      state.chat.message.unshift(res.gptMessage);
+      state.chat.message.unshift({
+        id: res.gptMessage.id,
+        sender: res.gptMessage.sender,
+        content: decryptMessage(res.gptMessage.content),
+        mbti: res.gptMessage.mbti,
+      });
 
       return {};
     });
