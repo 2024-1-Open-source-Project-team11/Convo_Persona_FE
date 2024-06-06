@@ -16,8 +16,24 @@ export const Input = styled.input`
   margin-bottom: 10px;
 
   font-size: 15px;
-
+  text-align: center;
   font-family: "Spoqa Han Sans Neo", "sans-seri";
+`;
+
+export const SignUpButton = styled.div`
+  font-size: 15px;
+  color: white;
+  width: 160px;
+
+  margin-top: 10px;
+  margin-bottom: 3px;
+  text-shadow: 0px 3px 0px rgba(0, 0, 0, 0.5);
+
+  :hover {
+    margin-top: 13px;
+    margin-bottom: 0px;
+    text-shadow: none;
+  }
 `;
 
 export const StyleButton = styled(Button)`
@@ -33,6 +49,8 @@ export const StyleButton = styled(Button)`
   box-shadow: 0px 5px 0 -0.5px black;
 
   margin-bottom: 5px;
+
+  transition: 0s;
 
   :hover {
     background-color: #ff4646;

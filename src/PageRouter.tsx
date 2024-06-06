@@ -7,6 +7,7 @@ import {
 } from "react-router-dom";
 
 import Loading from "./component/Loading";
+import { StatusMessage } from "./component/StatusMessage";
 
 import { PAGE_URL } from "./config/path";
 
@@ -22,6 +23,7 @@ const PageRouter = () => (
   <Suspense fallback={<Loading />}>
     <RootRouter>
       <AppStyles />
+      <StatusMessage />
       <Routes>
         <Route>
           <Route index element={<Navigate to={PAGE_URL.SignIn} replace />} />
