@@ -1,6 +1,6 @@
 import CryptoJS from "crypto-js";
 
-const secretKey = "your-secret-key";
+const secretKey = import.meta.env.VITE_MESSAGE_SECRET_KEY;
 
 // 암호화 함수
 export function encryptMessage(message: string) {
