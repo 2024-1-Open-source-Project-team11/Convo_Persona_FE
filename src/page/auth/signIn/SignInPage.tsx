@@ -31,7 +31,7 @@ const SignInPage = () => {
           <Styles.Input
             placeholder="아이디"
             {...register("name", { required: "아이디를 입력해주세요!" })}
-          />{" "}
+          />
           <Styles.Input
             placeholder="비밀번호"
             type="password"

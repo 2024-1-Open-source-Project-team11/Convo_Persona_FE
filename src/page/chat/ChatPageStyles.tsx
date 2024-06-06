@@ -16,6 +16,8 @@ export const Input = styled.input`
   outline: none;
 
   font-size: 15px;
+
+  font-family: "Spoqa Han Sans Neo", "sans-seri";
 `;
 
 export const SubmitButton = styled.button`
@@ -182,10 +184,10 @@ export const FeedbackInput = styled.textarea`
   background-color: white;
   border-radius: 5px;
 
-  font-family: Helvetica, Arial, sans-serif;
+  font-family: "Spoqa Han Sans Neo", "sans-seri";
 
   ::placeholder {
-    font-family: Helvetica, Arial, sans-serif;
+    font-family: "Spoqa Han Sans Neo", "sans-seri";
   }
 `;
 

@@ -16,6 +16,8 @@ export const Input = styled.input`
   margin-bottom: 10px;
 
   font-size: 15px;
+
+  font-family: "Spoqa Han Sans Neo", "sans-seri";
 `;
 
 export const StyleButton = styled(Button)`
