@@ -26,7 +26,21 @@ const AuthService = () => {
     navigate(PAGE_URL.Chat);
   };
 
-  return [signin];
+  const signUp = async (body: User.SignUpReqDto) => {
+    const {
+      data: { id },
+    } = (await API.post(
+      `${URL}/sign-up`,
+      body
+    )) as AxiosResponse<User.SignInResDto>;
+
+    setAccess(id);
+    setId(id);
+
+    navigate(PAGE_URL.Chat);
+  };
+
+  return { signin, signUp };
 };
 
 export default AuthService;

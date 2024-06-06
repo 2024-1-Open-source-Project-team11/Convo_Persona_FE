@@ -18,10 +18,12 @@ import {
   ChatInputContainer,
 } from "@/component/Container";
 import Logo from "@/component/Logo";
-import Loading from "@/component/GptLoading";
+import MbtiLoading from "@/component/MbtiLoading";
 import Message from "./Message";
 
 import * as Styles from "./ChatPageStyles";
+
+import { MBITRESULTCOUNT } from "@/PageRouter";
 
 const ChatPage = () => {
   const { register, handleSubmit, setValue } = useForm<Chat.AddChatReqDto>();
@@ -70,10 +72,13 @@ const ChatPage = () => {
         <Styles.MbtiContainer>
           <Styles.MbtiSubText>User's MBTI</Styles.MbtiSubText>
           <Styles.MbtiMainText>
-            {chat.message[0] && chat.message[0].mbti != "UNDEFINED" ? (
-              chat.message[0].mbti
+            {chat.message[1] &&
+            chat.message[1].mbti &&
+            chat.message[1].mbti != "UNDEFINED" &&
+            chat.message.length >= MBITRESULTCOUNT ? (
+              chat.message[1].mbti
             ) : (
-              <Loading />
+              <MbtiLoading />
             )}
           </Styles.MbtiMainText>
         </Styles.MbtiContainer>

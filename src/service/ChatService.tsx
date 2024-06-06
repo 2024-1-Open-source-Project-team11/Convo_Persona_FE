@@ -1,4 +1,5 @@
 import { AxiosResponse } from "axios";
+import { encryptMessage } from "@/config/crypto";
 
 import { API } from "@/config/axios";
 
@@ -19,6 +20,8 @@ const ChatService = () => {
 
   //New chat add (res is chat respense)
   const postUserMessage = async (body: Chat.AddChatReqDto) => {
+    body.content = encryptMessage(body.content);
+
     const { data } = (await API.post(
       `${URL}`,
       body

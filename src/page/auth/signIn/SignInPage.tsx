@@ -1,13 +1,17 @@
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 
 import { Container, SignInContainer } from "@/component/Container";
 import Logo from "@/component/Logo";
+import SignUp from "../signUp/SignUp";
 
 import AuthService from "@/service/AuthService";
+import useLayoutState from "@/store/layoutStore";
 
 import * as Styles from "./SignInPageStyles";
 
 const SignInPage = () => {
+  const [onCreate, setOnCreate] = useState(false);
   const { register, handleSubmit } = useForm<User.SignInReqDto>({
     defaultValues: {
       name: "",
@@ -15,34 +19,51 @@ const SignInPage = () => {
     },
   });
 
-  const [signin] = AuthService();
+  const setMessage = useLayoutState((state) => state.setMessage);
+  const { signin } = AuthService();
 
   const onSubmit = (data: User.SignInReqDto) => {
-    signin(data);
+    if (data.name === "" || data.password === "")
+      setMessage("모든 정보를 입력해주세요!");
+    else signin(data);
   };
 
   return (
-    <Container>
-      <Styles.Img src="/img/signin_logo.png" alt="logo" />
-      <SignInContainer>
-        <Logo type="BIG" />
+    <>
+      {onCreate && (
+        <SignUp
+          onClose={() => {
+            setOnCreate(false);
+          }}
+        />
+      )}
+      <Container>
+        <Styles.Img src="/img/signin_logo.png" alt="logo" />
+        <SignInContainer>
+          <Logo type="BIG" />
 
-        <Styles.SignInForm onSubmit={handleSubmit(onSubmit)}>
-          <Styles.Input
-            placeholder="아이디"
-            {...register("name", { required: "아이디를 입력해주세요!" })}
-          />{" "}
-          <Styles.Input
-            placeholder="비밀번호"
-            type="password"
-            {...register("password", { required: "비밀번호를 입력해주세요!" })}
-          />
-          <Styles.StyleButton type="submit" variant="contained">
-            로그인
-          </Styles.StyleButton>
-        </Styles.SignInForm>
-      </SignInContainer>
-    </Container>
+          <Styles.SignInForm onSubmit={handleSubmit(onSubmit)}>
+            <Styles.Input placeholder="아이디" {...register("name")} />
+            <Styles.Input
+              placeholder="비밀번호"
+              type="password"
+              {...register("password")}
+            />
+            <Styles.StyleButton type="submit" variant="contained">
+              대화하러 가기!
+            </Styles.StyleButton>
+
+            <Styles.SignUpButton
+              onClick={() => {
+                setOnCreate(true);
+              }}
+            >
+              혹시 아직 계정이 없나요?
+            </Styles.SignUpButton>
+          </Styles.SignInForm>
+        </SignInContainer>
+      </Container>
+    </>
   );
 };
 
