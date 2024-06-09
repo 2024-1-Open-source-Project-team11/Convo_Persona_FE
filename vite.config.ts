@@ -16,7 +16,7 @@ export default ({ mode }: { mode: string }) => {
       tsconfigPaths(),
     ],
 
-    /*server: {
+    /* server: {
       proxy: {
         "/api": {
           target: process.env.VITE_SERVER_URL,

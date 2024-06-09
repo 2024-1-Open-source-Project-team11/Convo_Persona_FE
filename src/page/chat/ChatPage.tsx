@@ -53,7 +53,9 @@ const ChatPage = () => {
 
   useEffect(() => {
     if (standby) {
-      postUserMessage(chat.message[0].content).then(() => setStandby(false));
+      postUserMessage({ content: chat.message[0].content }).then(() =>
+        setStandby(false)
+      );
     }
   }, [standby]);
 
