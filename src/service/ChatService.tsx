@@ -15,17 +15,17 @@ const ChatService = () => {
   //All chat load
   const loadAllChat = async () => {
     const { data } = (await API.get(`${URL}`)) as AxiosResponse<Chat.Chat>;
+
     setChat(data);
   };
 
   //New chat add (res is chat respense)
   const postUserMessage = async (body: Chat.AddChatReqDto) => {
-    body.content = encryptMessage(body.content);
+    const content = encryptMessage(body.content);
 
-    const { data } = (await API.post(
-      `${URL}`,
-      body
-    )) as AxiosResponse<Chat.AddChatResDto>;
+    const { data } = (await API.post(`${URL}`, {
+      content: content,
+    })) as AxiosResponse<Chat.AddChatResDto>;
 
     addGptMessage(data);
   };
