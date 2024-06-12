@@ -34,7 +34,7 @@ const Message = ({ message }: Prop) => {
             sx={{ width: 40, height: 40 }}
           />
           <MessageContantContainer>
-            <Styles.ProfileText>Covon persona</Styles.ProfileText>
+            <Styles.ProfileText>Convo persona</Styles.ProfileText>
             <Styles.Content style={{ height: "60px" }}>
               <Loading />
             </Styles.Content>
