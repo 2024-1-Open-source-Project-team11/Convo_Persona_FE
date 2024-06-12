@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 
 import { Container, SignInContainer } from "@/component/Container";
@@ -10,6 +10,8 @@ import useLayoutState from "@/store/layoutStore";
 
 import * as Styles from "./SignInPageStyles";
 
+import { API } from "@/config/axios";
+
 const SignInPage = () => {
   const [onCreate, setOnCreate] = useState(false);
   const { register, handleSubmit } = useForm<User.SignInReqDto>({
@@ -18,6 +20,13 @@ const SignInPage = () => {
       password: "",
     },
   });
+
+  useEffect(() => {
+    API.get(
+      "https://q1mw5zsugd.execute-api.ap-northeast-2.amazonaws.com/api/v1/dummy"
+    );
+    console.log("!");
+  }, []);
 
   const setMessage = useLayoutState((state) => state.setMessage);
   const { signin } = AuthService();
